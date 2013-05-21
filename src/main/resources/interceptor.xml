@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+        
+<struts>
+	<package name="inter" namespace="/inter" extends="struts-default">
+		<interceptors>
+			<interceptor name="logger" class="cn.haohaowo.ch10.LoggerInterceptor"></interceptor>
+			<interceptor name="auth" class="cn.haohaowo.ch10.AuthenticationInterceptor"></interceptor>
+			<interceptor name="annotationInterceptor" 
+				class="com.opensymphony.xwork2.interceptor.annotations.AnnotationWorkflowInterceptor">
+			</interceptor>
+			<interceptor-stack name="securityStack">
+				<interceptor-ref name="defaultStack"></interceptor-ref>
+				<interceptor-ref name="auth"></interceptor-ref>
+				<interceptor-ref name="annotationInterceptor"></interceptor-ref>
+			</interceptor-stack>
+			<interceptor-stack name="annotationStack">
+				<interceptor-ref name="defaultStack"></interceptor-ref>
+				<interceptor-ref name="annotationInterceptor"></interceptor-ref>
+			</interceptor-stack>
+		</interceptors>
+	
+		<global-results>
+			<result name="login">/ch10/login.jsp</result>
+		</global-results>
+	
+		<action name="interTest" class="cn.haohaowo.ch10.TestAction">
+			<result>/success.jsp</result>
+			<interceptor-ref name="logger"></interceptor-ref>
+		</action>
+		
+		<action name="login" class="cn.haohaowo.ch10.LoginAction">
+			<result>/success.jsp</result>
+			<result name="input">/ch10/login.jsp</result>
+		</action>
+		
+		<action name="resource">
+			<result>/kuaiqian.jsp</result>
+			<interceptor-ref name="securityStack"></interceptor-ref>
+		</action>
+		
+		<action name="annotation" class="cn.haohaowo.ch10.AnnotationAction">
+			<result>/success.jsp</result>
+			<interceptor-ref name="annotationStack"></interceptor-ref>
+		</action>
+		
+		<action name="resourceAction" class="cn.haohaowo.ch10.ResourceAction">
+			<result>/kuaiqian.jsp</result>
+			<interceptor-ref name="annotationStack"></interceptor-ref>
+		</action>
+	</package>
+</struts>

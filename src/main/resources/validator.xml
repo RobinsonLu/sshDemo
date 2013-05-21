@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+        
+<struts>
+	<constant name="struts.i18n.encoding" value="UTF-8"></constant>
+	<constant name="struts.i18n.resources" value="cn.haohaowo.ch12.RegisterAction"></constant>
+	<package name="validator" namespace="/validator" extends="struts-default">
+		<result-types>
+			<result-type name="validationCodeResult" class="cn.haohaowo.ch12.ValidationCodeResult"></result-type>
+		</result-types>
+		<action name="validationCode" class="cn.haohaowo.ch12.ValidationCodeAction">
+			<result name="success" type="validationCodeResult"/>
+		</action>
+		
+		<action name="register" class="cn.haohaowo.ch12.RegisterAction">
+			<result name="input">/ch12/register.jsp</result>
+			<result name="success">/ch12/success.jsp</result>
+			<result name="error">/ch12/error.jsp</result>
+			
+			<interceptor-ref name="defaultStack">
+				<param name="workflow.excludeMethods">default</param>
+				<param name="validation.excludeMethods">default</param>
+			</interceptor-ref>
+		</action>
+	</package>
+</struts>
