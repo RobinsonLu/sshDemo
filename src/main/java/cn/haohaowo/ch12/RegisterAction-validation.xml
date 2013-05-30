@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE validators PUBLIC
+  		"-//OpenSymphony Group//XWork Validator 1.0.3//EN"
+  		"http://www.opensymphony.com/xwork/xwork-validator-1.0.3.dtd">
+
+<validators>
+
+	<!--  
+	<field name="user.username">
+		<field-validator type="requiredstring">
+			<message key="error.username.required"></message>
+		</field-validator>
+		<field-validator type="stringlength">
+			<param name="minLength">4</param>
+			<param name="maxLength">12</param>
+			<message key="error.username.length"></message>
+		</field-validator>
+	</field>
+	<field name="user.password">
+		<field-validator type="requiredstring">
+			<message key="error.password.required"></message>
+		</field-validator>
+		<field-validator type="stringlength">
+			<param name="minLength">4</param>
+			<param name="maxLength">12</param>
+			<message key="error.password.length"></message>
+		</field-validator>
+	</field>
+	<field name="user.email">
+		<field-validator type="requiredstring">
+			<message key="error.email.required"></message>
+		</field-validator>
+		<field-validator type="email">
+			<message key="error.email.invalid"></message>
+		</field-validator>
+	</field>
+	-->
+	
+	<field name="user">
+		<field-validator type="visitor">
+			<param name="appendPrefix">true</param>
+			<param name="context">login</param>
+			<message>User: </message>
+		</field-validator>
+	</field>
+	<field name="verifyPassword">
+		<field-validator type="requiredstring">
+			<message key="error.verifyPassword.required"></message>
+		</field-validator>
+		<field-validator type="fieldexpression">
+			<param name="expression">verifyPassword == user.password</param>
+			<message key="error.verifyPassword.identical"></message>
+		</field-validator>
+	</field>
+	<field name="validationCode">
+		<field-validator type="requiredstring">
+			<message key="error.validationCode.required"></message>
+		</field-validator>
+		<field-validator type="validationCodeValidator">
+			<param name="sessionValidationCode">#session.validationCode</param>
+			<message key="error.validationCode.invalid"></message>
+		</field-validator>
+	</field>
+</validators>

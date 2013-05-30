@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping>
+	<class name="cn.haohaowo.pojo.New" table="news" discriminator-value="news">
+		<id name="id" column="id" type="java.lang.Integer">
+			<generator class="identity"></generator>
+		</id>
+		<discriminator column="news_type" type="java.lang.String"></discriminator>
+		<property name="author" type="java.lang.String" column="author"></property>
+		<property name="message" type="java.lang.String" column="message"></property>
+		<property name="title" type="java.lang.String" column="title"></property>
+		
+		<subclass name="cn.haohaowo.pojo.SportNew" discriminator-value="sports">
+			<join table="sports">
+				<key column="parent_id"></key>
+				<property name="teacher"></property>
+				<property name="team"></property>
+			</join>
+		</subclass>
+		
+		<subclass name="cn.haohaowo.pojo.EcNew" discriminator-value="ec">
+			<join table="en_news">
+				<key column="parent_id"></key>
+				<property name="growth"></property>
+			</join>
+		</subclass>
+		
+	</class>
+</hibernate-mapping>

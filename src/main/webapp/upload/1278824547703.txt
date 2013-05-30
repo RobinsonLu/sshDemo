@@ -1,0 +1,32 @@
+以下的 J2EE 应用程序已经配置, 并且可用下面列出的 URL 来访问。
+
+数据库配置文件已经安装到 D:\oracle\product\10.1.0,同时其他选定的安装组件也已经安装到 D:\oracle\product\10.1.0\db_1。
+Ultra Search URL:
+http://lenovo-2fa63295:5620/ultrasearch
+
+Ultra Search 管理工具 URL:
+http://lenovo-2fa63295:5620/ultrasearch/admin
+
+iSQL*Plus URL:
+http://lenovo-2fa63295:5560/isqlplus
+
+Enteprise Manager 10g Database Control URL:
+http://lenovo-2fa63295:5500/em
+
+
+连接Oracle
+
+sqlplus sys/admin as sysdba;
+
+连接表
+
+connect scott/admin;
+
+
+改密码
+
+alter user scott identified by admin;
+
+
+net ip 218.79.25.234
+client  ip 192.168.1.2

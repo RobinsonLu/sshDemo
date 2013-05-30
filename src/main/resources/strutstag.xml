@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+        
+<struts>
+	<package name="strutstag" namespace="/strutstag" extends="struts-default">
+		<action name="setTag" class="cn.haohaowo.ch8.SetTagAction">
+			<result name="success">/ch8/setTag.jsp</result>
+		</action>
+		<action name="pushTag" class="cn.haohaowo.ch8.PushTagAction">
+			<result name="success">/ch8/pushTag.jsp</result>
+		</action>
+		<action name="actionTag" class="cn.haohaowo.ch8.ActionTagAction">
+			<result name="success">/ch8/actionTagSuccess.jsp</result>
+		</action>
+		<action name="textTag" class="cn.haohaowo.ch8.TextTagAction">
+			<result>/ch8/i18nTag.jsp</result>
+		</action>
+		<action name="debugTag" class="cn.haohaowo.ch8.DebugTagAction">
+			<result>/ch8/debugTag.jsp</result>
+		</action>
+		<action name="formSelectTag" class="cn.haohaowo.ch8.SelectTagAction">
+			<result name="success">/ch8/selectTag.jsp</result>
+		</action>
+		<action name="doubleSelectTag" class="cn.haohaowo.ch8.DoubleSelectTagAction">
+			<result name="success">/ch8/doubleselectTag2.jsp</result>
+		</action>
+		<action name="messageAction" class="cn.haohaowo.ch8.MessageAction">
+			<result name="success">/ch8/message.jsp</result>
+		</action>
+	</package>
+</struts>

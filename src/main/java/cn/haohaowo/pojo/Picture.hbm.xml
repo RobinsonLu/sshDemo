@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping>
+	<class name="cn.haohaowo.pojo.Picture" table="picture">
+		<id name="id" column="id" type="java.lang.Integer">
+			<generator class="identity"></generator>
+		</id>
+		<property name="name" type="java.lang.String" column="name"></property>
+		<property name="createdate" type="java.util.Date" column="create_date"></property>
+		<property name="lastupdatedate" type="java.util.Date" column="lastupdate_date"></property>
+		<property name="owner" type="java.lang.String" column="owner"></property>
+		<property name="story" type="java.lang.String" column="story"></property>
+		<property name="abstact" type="java.lang.String" column="abstact"></property>
+		<property name="url" type="java.lang.String" column="url"></property>
+	</class>
+</hibernate-mapping>

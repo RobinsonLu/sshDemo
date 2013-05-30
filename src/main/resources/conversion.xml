@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+        
+<struts>
+	<constant name="struts.i18n.encoding" value="UTF-8"></constant>
+	<constant name="struts.custom.i18n.resources" value="ApplicationResources"></constant>
+	<package name="conversion" namespace="/conversion" extends="struts-default">
+		<action name="bookConfirmActionLowver5" class="cn.haohaowo.ch11.BookConfirmActionListLower5">
+			<result>/ch11/showbookslist.jsp</result>
+		</action>
+		
+		<action name="bookConfirmAction" class="cn.haohaowo.ch11.BookConfirmActionList">
+			<result>/ch11/showbookslist.jsp</result>
+		</action>
+		
+		<action name="bookConfirmActionMap" class="cn.haohaowo.ch11.BookConfirmActionMap">
+			<result>/ch11/showbooksmap.jsp</result>
+		</action>
+		
+		<action name="register" class="cn.haohaowo.ch11.RegisterAction">
+			<result>/ch11/studentinfo.jsp</result>
+			<result name="input">/ch11/register.jsp</result>
+		</action>
+	</package>
+</struts>
